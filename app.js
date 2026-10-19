@@ -1,7 +1,7 @@
 /* GitHub Pages frontend for the scikit-learn GPR backend.
    After deploying the backend, replace API_BASE_URL below with its HTTPS URL. */
 "use strict";
-const API_BASE_URL = "https://YOUR-BACKEND.onrender.com";
+const API_BASE_URL = "https://machining-optimizer-api.onrender.com";
 const $ = id => document.getElementById(id);
 let materialNames = [];
 let latestResults = [];
