@@ -42,16 +42,16 @@ async function loadMaterialList() {
   }
 }
 $("optimizeBtn").addEventListener("click",async()=>{
-  const total=Number($("totalDepth").value), diameter=Number($("toolDiameter").value);
+  const total=Number($("totalDepth").value), diameter=Number($("workpieceDiameter").value);
   const len=$("cutLength").value.trim(), length=len===""?null:Number(len);
   if(!(total>0)){setStatus("Total depth must be greater than zero.",true);return;}
-  if(!(diameter>0)){setStatus("Tool diameter must be greater than zero.",true);return;}
+  if(!(diameter>0)){setStatus("Workpiece diameter must be greater than zero.",true);return;}
   if(length!==null && !(length>0)){setStatus("Cutting length must be greater than zero.",true);return;}
   $("optimizeBtn").disabled=true;setStatus("Running the actual scikit-learn GPR optimizer…");
   try {
     const response=await fetch(apiUrl("/api/optimize"),{
       method:"POST",headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({material_name:$("materialSelect").value,total_depth_mm:total,tool_diameter_mm:diameter,cut_length_per_pass_mm:length})
+      body:JSON.stringify({material_name:$("materialSelect").value,total_depth_mm:total,workpiece_diameter_mm:diameter,cut_length_per_pass_mm:length})
     });
     const data=await response.json();
     if(!response.ok) throw new Error(data.detail||"Optimization failed");
