@@ -44,9 +44,7 @@
       <p class="disclaimer">Predictions represent cutting power only. They exclude auxiliary power, hydraulics, coolant, standby loads, and other machine-system consumption. Energy and CO₂ are estimates based on the entered cutting length and the emission factor configured in this app.</p>
     </section>
 
-    <section class="panel note-panel">
-      <div class="note-icon">i</div><div><h3>Model and validation note</h3><p>The frontend calls your Python backend, which trains scikit-learn GaussianProcessRegressor models using the Matérn kernel, StandardScaler, and separate force/power targets. The backend returns held-out validation metrics. Validate predictions before using settings on a machine.</p></div>
-    </section>
+
     <footer>GitHub Pages frontend · Preconfigured Python GPR models · HTTPS connection required</footer>
   </main>
   <script src="./app.js" defer></script>
